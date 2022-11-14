@@ -11,7 +11,7 @@ function App() {
 	function fetchReports() {
 		fetch('http://localhost:8000/api/reports').then((res) =>
 			res.json().then((data) => {
-				setReportData(...data);
+				setReportData(data);
 			})
 		);
 	}
