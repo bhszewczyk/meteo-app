@@ -1,0 +1,8 @@
+.app {
+	max-width: 80rem;
+	background-color: #f0f9f8;
+	color: #0e273c;
+	padding: 4rem;
+	box-shadow: 2px 2px 16px rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+}

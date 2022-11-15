@@ -1,0 +1,10 @@
+.reports-container {
+	width: 40rem;
+}
+
+.app-title {
+	padding: 0 0 4rem;
+	letter-spacing: 1px;
+	font-weight: 100;
+	font-size: 4rem;
+}

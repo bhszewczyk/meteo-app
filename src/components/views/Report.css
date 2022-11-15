@@ -1,0 +1,66 @@
+.report-container {
+	background-image: linear-gradient(to bottom right, #c5e8e4, #f0f9f8);
+	background-color: #c5e8e4;
+	padding: 2rem;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.report-container:not(:last-of-type) {
+	margin-bottom: 1.4rem;
+}
+
+.report-temperature {
+	padding-right: 2rem;
+	border-right: 1px solid #0e273c;
+	width: 5rem;
+}
+
+.temp-icon {
+	font-size: 4rem;
+}
+
+.report-data--temp {
+	font-weight: bold;
+}
+
+.icon-hot {
+	color: #c32f27;
+}
+
+.icon-warm {
+	color: #db7c26;
+}
+
+.icon-cool {
+	color: #f9cb76;
+}
+
+.icon-freezing {
+	color: #70d6ff;
+}
+
+.report-data--temp-unit {
+	margin-left: 0.4rem;
+}
+
+.report-data {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	align-self: stretch;
+}
+
+.report-data--date {
+	font-size: 1.2rem;
+}
+
+.report-data--location {
+	font-size: 1.8rem;
+	letter-spacing: 1px;
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import ReportList from './components/views/ReportList';
 
 function App() {
 	const [reportData, setReportData] = useState([]);
@@ -18,7 +19,11 @@ function App() {
 
 	console.log(reportData);
 
-	return <div className='App'></div>;
+	return (
+		<div className='app'>
+			<ReportList reportData={reportData} />
+		</div>
+	);
 }
 
 export default App;
