@@ -1,14 +1,14 @@
-const fetchDataFromServer = async (url, fn, errFn) => {
+const fetchDataFromServer = async (url, succCallback, errCallback) => {
 	let dataResults = await fetch(url)
 		.then((res) => res.json())
-		.then(fn)
-		.catch(errFn);
+		.then(succCallback)
+		.catch(errCallback);
 
 	return dataResults;
 };
 
-const saveDataOnServer = (url, config, succFn, errFn) => {
-	fetch(url, config).then(succFn).catch(errFn);
+const saveDataOnServer = (url, config, succCallback, errCallback) => {
+	fetch(url, config).then(succCallback).catch(errCallback);
 };
 
 export { fetchDataFromServer, saveDataOnServer };
