@@ -52,7 +52,6 @@ export default function ReportList(props) {
 	function sendDataToServer(e) {
 		e.preventDefault();
 		setIsEditing(false);
-		console.log('sending...');
 
 		fetch(`http://localhost:8000/api/reports/${objToEdit.id}`, {
 			method: 'PUT',

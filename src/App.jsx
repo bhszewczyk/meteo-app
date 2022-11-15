@@ -13,22 +13,18 @@ function App() {
 
 	// fetch data from the server on the first app render
 	useEffect(() => {
-		fetchReports();
+		fetchDataFromServer('http://localhost:8000/api/reports', (data) => {
+			setReportData(data);
+			resetEdition();
+		});
 	}, [wasEdited]);
-
-	function fetchReports() {
-		fetch('http://localhost:8000/api/reports').then((res) =>
-			res.json().then((data) => {
-				setReportData(data);
-				setWasEdited(false);
-			})
-		);
-	}
-
-	console.log(reportData);
 
 	function detectEdition() {
 		setWasEdited(true);
+	}
+
+	function resetEdition() {
+		setWasEdited(false);
 	}
 
 	// render report list
@@ -37,7 +33,7 @@ function App() {
 			<ReportList
 				reportData={reportData}
 				detectEdition={detectEdition}
-				// fetchReports={fetchReports}
+				resetEdition={resetEdition}
 			/>
 		</div>
 	);
