@@ -10,9 +10,8 @@
 	font-size: 4rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 350px) {
 	.reports-container {
-		min-width: 30rem;
-		max-width: 40rem;
+		width: 30rem;
 	}
 }

@@ -18,6 +18,7 @@
 	align-items: center;
 	padding: 4rem;
 	top: 0;
+	background-image: linear-gradient(to bottom right, #c5e8e4, #f0f9f8);
 	background-color: #c5e8e4;
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.4);
 	border-radius: 10px;

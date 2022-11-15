@@ -1,11 +1,12 @@
 .app {
-	max-width: 80rem;
+	min-width: 60rem;
+	max-width: 120rem;
 	background-color: #f0f9f8;
 	color: #0e273c;
 	padding: 4rem;
 	box-shadow: 2px 2px 16px rgba(255, 255, 255, 0.3);
 	border-radius: 10px;
-	overflow-y: scroll;
+	margin-top: 4rem;
 }
 
 .btn {
@@ -28,4 +29,21 @@
 
 .btn:active {
 	transform: scale(0.98);
+}
+
+@media (max-width: 400px) {
+	.app {
+		padding: 1rem;
+		min-width: 20rem;
+		margin-top: 2rem;
+	}
+}
+
+@media (max-width: 300px) {
+	.app {
+		width: 100%;
+		padding: 2rem 0.4rem;
+		margin: 0;
+		border-radius: 0;
+	}
 }
