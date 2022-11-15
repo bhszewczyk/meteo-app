@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Report.css';
 import EditBtn from '../buttons/EditBtn';
 
 export default function Report(props) {
+	// destruct reportData for clarity purposes
 	const { city, date, temperature, unit: temperatureUnit } = props.reportData;
 
+	// define converter to Kelvin function
 	function getKelvins(temperature, temperatureUnit) {
 		if (temperatureUnit === 'K') {
 			return {
@@ -28,7 +30,8 @@ export default function Report(props) {
 		}
 	}
 
-	function getTemperatureInterpretation(temperature) {
+	// define styling helper function to receive proper classes
+	function getTemperatureInterpretationClass(temperature) {
 		if (temperature > 303) {
 			return 'fa-solid fa-temperature-full icon-hot';
 		} else if (temperature <= 303 && temperature > 293) {
@@ -40,11 +43,15 @@ export default function Report(props) {
 		}
 	}
 
+	// create variable which will assign temperature in Kelvin
 	const displayTemperature = getKelvins(temperature, temperatureUnit);
-	const iconColorClass = getTemperatureInterpretation(
+
+	// create variable for styling classes
+	const iconColorClass = getTemperatureInterpretationClass(
 		displayTemperature.temperature
 	);
 
+	// return single weather report component
 	return (
 		<div className='report-container'>
 			<div className='report-temperature'>

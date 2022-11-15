@@ -1,8 +1,8 @@
 import React from 'react';
 import './Form.css';
 
+// create form component where inputs are controlled by the state of objToEdit
 export default function Form(props) {
-	console.log(props.objToEdit);
 	return (
 		<div className='form-container'>
 			<form action='' className='edit-form'>
