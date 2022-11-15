@@ -17,7 +17,7 @@ export default function Form(props) {
 					/>
 					<label htmlFor=''></label>
 					<input
-						type='text'
+						type='date'
 						className='text-input date'
 						placeholder='YYYY-MM-DD'
 						onChange={props.updateData}

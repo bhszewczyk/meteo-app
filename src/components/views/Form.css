@@ -38,7 +38,8 @@
 }
 
 .edit-form input[type='text'],
-.edit-form input[type='number'] {
+.edit-form input[type='number'],
+.edit-form input[type='date'] {
 	height: 3rem;
 	padding: 0.6rem;
 	border: 1px solid #c5e8e4;
