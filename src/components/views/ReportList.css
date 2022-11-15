@@ -1,5 +1,6 @@
 .reports-container {
 	width: 40rem;
+	position: relative;
 }
 
 .app-title {

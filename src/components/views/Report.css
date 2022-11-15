@@ -16,7 +16,7 @@
 .report-temperature {
 	padding-right: 2rem;
 	border-right: 1px solid #0e273c;
-	width: 5rem;
+	min-width: 10rem;
 }
 
 .temp-icon {

@@ -17,8 +17,6 @@ function App() {
 		);
 	}
 
-	console.log(reportData);
-
 	return (
 		<div className='app'>
 			<ReportList reportData={reportData} />

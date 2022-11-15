@@ -1,0 +1,13 @@
+.btn-edit {
+	padding: 0.4rem;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	margin-left: auto;
+	align-self: start;
+}
+
+.btn-edit i {
+	font-size: 1.6rem;
+	color: #0e273c;
+}
