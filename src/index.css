@@ -18,3 +18,15 @@ body {
 	min-height: 100vh;
 	font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 600px) {
+	html {
+		font-size: 50%;
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		font-size: 42.5%;
+	}
+}

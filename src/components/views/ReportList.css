@@ -1,5 +1,5 @@
 .reports-container {
-	width: 40rem;
+	min-width: 40rem;
 	position: relative;
 }
 
@@ -8,4 +8,11 @@
 	letter-spacing: 1px;
 	font-weight: 100;
 	font-size: 4rem;
+}
+
+@media (max-width: 400px) {
+	.reports-container {
+		min-width: 30rem;
+		max-width: 40rem;
+	}
 }

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Report from './Report';
 import Form from './Form';
+import Error from './Error';
 import './ReportList.css';
+import { saveDataOnServer } from '../fetch';
 
 export default function ReportList(props) {
 	// define state to toggle editing option
 	const [isEditing, setIsEditing] = useState(false);
+
+	const [saveSuccess, setSaveSuccess] = useState(true);
 
 	// define object which will be eddited
 	const [objToEdit, setObjToEdit] = useState({
@@ -53,13 +57,26 @@ export default function ReportList(props) {
 		e.preventDefault();
 		setIsEditing(false);
 
-		fetch(`http://localhost:8000/api/reports/${objToEdit.id}`, {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
+		saveDataOnServer(
+			`http://localhost:8000/api/reports/${objToEdit.id}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(objToEdit),
 			},
-			body: JSON.stringify(objToEdit),
-		});
+			() => {
+				setSaveSuccess(true);
+				console.log('succeed');
+			},
+			() => {
+				setSaveSuccess(false);
+				setTimeout(() => {
+					setSaveSuccess(true);
+				}, 3000);
+			}
+		);
 
 		props.detectEdition();
 	}
@@ -80,6 +97,7 @@ export default function ReportList(props) {
 	return (
 		<main className='reports-container'>
 			<h1 className='app-title'>Meteo App</h1>
+			{!saveSuccess && <Error message='Saving not succeeded...' />}
 			{reportEls}
 			{isEditing && (
 				<Form

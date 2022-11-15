@@ -64,3 +64,22 @@
 	font-size: 1.8rem;
 	letter-spacing: 1px;
 }
+
+@media (max-width: 400px) {
+	.report-container {
+		padding: 1rem;
+		max-width: 40rem;
+	}
+
+	.temp-icon {
+		font-size: 3rem;
+	}
+
+	.report-temperature {
+		padding-right: 0.4rem;
+	}
+
+	.report-data--location {
+		font-size: 1.4rem;
+	}
+}
