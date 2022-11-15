@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Report from './Report';
 import Form from './Form';
 import './ReportList.css';
 
 export default function ReportList(props) {
 	// define state to toggle editing option
-	const [isEditing, setIsEditing] = useState(true);
+	const [isEditing, setIsEditing] = useState(false);
 
 	// define object which will be eddited
 	const [objToEdit, setObjToEdit] = useState({
@@ -49,6 +49,22 @@ export default function ReportList(props) {
 		});
 	}
 
+	function sendDataToServer(e) {
+		e.preventDefault();
+		setIsEditing(false);
+		console.log('sending...');
+
+		fetch(`http://localhost:8000/api/reports/${objToEdit.id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(objToEdit),
+		});
+
+		props.detectEdition();
+	}
+
 	// create variable which map through the all data and return Report component
 	// for each data object
 	const reportEls = props.reportData.map((report) => {
@@ -71,6 +87,7 @@ export default function ReportList(props) {
 					objToEdit={objToEdit}
 					updateData={updateData}
 					closeEditing={closeEditing}
+					sendDataToServer={sendDataToServer}
 				/>
 			)}
 		</main>

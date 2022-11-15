@@ -5,7 +5,7 @@ import './Form.css';
 export default function Form(props) {
 	return (
 		<div className='form-container'>
-			<form action='' className='edit-form'>
+			<form onSubmit={(e) => props.sendDataToServer(e)} className='edit-form'>
 				<div className='inputs'>
 					<input
 						type='text'
