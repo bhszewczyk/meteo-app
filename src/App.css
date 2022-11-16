@@ -7,28 +7,8 @@
 	box-shadow: 2px 2px 16px rgba(255, 255, 255, 0.3);
 	border-radius: 10px;
 	margin-top: 4rem;
-}
-
-.btn {
-	background-color: #0e273c;
-	color: #f0f9f8;
-	font-family: inherit;
-	border: 0;
-	padding: 0.8rem 4rem;
-	border-radius: 5px;
-	font-size: 1.8rem;
-	align-self: center;
-	margin-top: 4rem;
-	transition: background-color 0.2s linear;
-	cursor: pointer;
-}
-
-.btn:hover {
-	background-color: #1d405c;
-}
-
-.btn:active {
-	transform: scale(0.98);
+	/* max-height: 90vh; */
+	/* overflow-y: scroll; */
 }
 
 @media (max-width: 400px) {

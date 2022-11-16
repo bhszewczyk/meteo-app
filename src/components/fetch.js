@@ -7,8 +7,22 @@ const fetchDataFromServer = async (url, succCallback, errCallback) => {
 	return dataResults;
 };
 
-const saveDataOnServer = (url, config, succCallback, errCallback) => {
-	fetch(url, config).then(succCallback).catch(errCallback);
+const saveDataOnServer = (
+	url,
+	config,
+	objToEdit,
+	succCallback,
+	errCallback
+) => {
+	fetch(url, {
+		method: config,
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(objToEdit),
+	})
+		.then(succCallback)
+		.catch(errCallback);
 };
 
 export { fetchDataFromServer, saveDataOnServer };

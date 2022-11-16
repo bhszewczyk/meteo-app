@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Report from './Report';
 import Form from './Form';
 import Error from './Error';
+import Btn from '../buttons/Btn';
 import './ReportList.css';
 import { saveDataOnServer } from '../fetch';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ReportList(props) {
 	// define state to toggle editing option
@@ -22,7 +24,16 @@ export default function ReportList(props) {
 
 	// define enable editing function which will be passed to the report component
 	// and will receive back as param object passed to the single report component
-	function enableEditing(data) {
+	function enableEditing(
+		data = {
+			id: '',
+			temperature: 0,
+			unit: '',
+			date: '',
+			city: '',
+		}
+	) {
+		console.log(data);
 		setIsEditing(true);
 
 		setObjToEdit({
@@ -57,26 +68,34 @@ export default function ReportList(props) {
 		e.preventDefault();
 		setIsEditing(false);
 
-		saveDataOnServer(
-			`http://localhost:8000/api/reports/${objToEdit.id}`,
-			{
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(objToEdit),
-			},
-			() => {
+		console.log(objToEdit);
+
+		const saveSuccess = () => setSaveSuccess(true);
+		const saveFailed = () => {
+			setSaveSuccess(false);
+			setTimeout(() => {
 				setSaveSuccess(true);
-				console.log('succeed');
-			},
-			() => {
-				setSaveSuccess(false);
-				setTimeout(() => {
-					setSaveSuccess(true);
-				}, 3000);
-			}
-		);
+			}, 3000);
+		};
+
+		if (objToEdit.id) {
+			saveDataOnServer(
+				`http://localhost:8000/api/reports/${objToEdit.id}`,
+				'PUT',
+				objToEdit,
+				saveSuccess,
+				saveFailed
+			);
+		} else {
+			objToEdit.id = uuidv4();
+			saveDataOnServer(
+				`http://localhost:8000/api/reports`,
+				'POST',
+				objToEdit,
+				saveSuccess,
+				saveFailed
+			);
+		}
 
 		props.detectEdition();
 	}
@@ -98,6 +117,9 @@ export default function ReportList(props) {
 		<main className='reports-container'>
 			<h1 className='app-title'>Meteo App</h1>
 			{!saveSuccess && <Error message='Saving not succeeded...' />}
+			<div className='btn-container align-right'>
+				<Btn message='+' onclick={enableEditing} classes='btn-square' />
+			</div>
 			{reportEls}
 			{isEditing && (
 				<Form

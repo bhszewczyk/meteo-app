@@ -3,6 +3,7 @@ import './App.css';
 import ReportList from './components/views/ReportList';
 import Error from './components/views/Error';
 import { fetchDataFromServer } from './components/fetch';
+import './helperClasses.css';
 
 function App() {
 	// define state for the whole data
