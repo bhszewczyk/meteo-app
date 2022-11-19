@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Report from './Report';
 import Form from './Form';
 import Error from './Error';
@@ -29,7 +29,7 @@ export default function ReportList(props) {
 			/>
 		);
 	});
-
+	//
 	useEffect(() => {
 		props.detectEdition();
 	}, [isEditing]);
@@ -37,7 +37,6 @@ export default function ReportList(props) {
 	// return core of the app - repost list and conditionaly - edditing form
 	return (
 		<main className='reports-container'>
-			<h1 className='app-title'>Meteo App</h1>
 			{!saveSuccess && <Error message='Saving not succeeded...' />}
 			<div className='btn-container align-right'>
 				<Btn message='+' onclick={enableEditing} classes='btn-round'>

@@ -7,8 +7,13 @@
 	box-shadow: 2px 2px 16px rgba(255, 255, 255, 0.3);
 	border-radius: 10px;
 	margin-top: 4rem;
-	/* max-height: 90vh; */
-	/* overflow-y: scroll; */
+}
+
+.app-title {
+	padding: 0 0 4rem;
+	letter-spacing: 1px;
+	font-weight: 100;
+	font-size: 4rem;
 }
 
 @media (max-width: 400px) {

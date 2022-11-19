@@ -1,0 +1,14 @@
+.options-container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.options-container select {
+	text-align: right;
+	background-color: transparent;
+	border: 0;
+	font-family: inherit;
+	margin-left: 1rem;
+	padding: 0.2rem;
+}
