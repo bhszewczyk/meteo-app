@@ -66,7 +66,6 @@ function useReportList() {
 
 		const saveSuccess = () => setSaveSuccess(true);
 		const saveFailed = () => {
-			console.log('fail');
 			setSaveSuccess(false);
 			setTimeout(() => {
 				setSaveSuccess(true);
