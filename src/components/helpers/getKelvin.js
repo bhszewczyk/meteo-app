@@ -1,4 +1,4 @@
-function useKelvin(reportObj) {
+function getKelvin(reportObj) {
 	// destruct reportObjfor clarity purposes
 	const { temperature, unit: temperatureUnit, date, city } = reportObj;
 
@@ -57,4 +57,4 @@ function useKelvin(reportObj) {
 	};
 }
 
-export default useKelvin;
+export default getKelvin;

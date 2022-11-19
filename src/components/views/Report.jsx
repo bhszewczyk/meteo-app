@@ -1,11 +1,11 @@
 import React from 'react';
 import './Report.css';
 import EditBtn from '../buttons/EditBtn';
-import useKelvin from '../hooks/useKelvin';
+import getKelvin from '../helpers/getKelvin';
 
 export default function Report(props) {
 	// get business logic for UI from useKelvin custom hook
-	const { displayTemp, displayUnit, iconColorClass, date, city } = useKelvin(
+	const { displayTemp, displayUnit, iconColorClass, date, city } = getKelvin(
 		props.reportData
 	);
 

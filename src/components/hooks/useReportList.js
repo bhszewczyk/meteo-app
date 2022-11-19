@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { saveDataOnServer } from '../fetch';
+import { saveDataOnServer } from '../helpers/fetch';
 
 function useReportList() {
 	// define state to toggle editing option
