@@ -1,4 +1,4 @@
-const URL = 'http://localhost:8000/api/reports/';
+const URL = 'http://localhost:8000/api/reports';
 
 const fetchDataFromServer = async (url, succCallback, errCallback) => {
 	let dataResults = await fetch(url)
@@ -9,23 +9,17 @@ const fetchDataFromServer = async (url, succCallback, errCallback) => {
 	return dataResults;
 };
 
-const saveDataOnServer = (
-	url,
-	method,
-	objToEdit,
-	succCallback,
-	errCallback
-) => {
-	console.log(JSON.stringify(objToEdit));
-	fetch(url, {
-		method: method,
+const saveDataOnServer = (restApi, config) => {
+	console.log(URL + restApi);
+	fetch(URL + restApi, {
+		method: config.method,
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify(objToEdit),
+		body: JSON.stringify(config.objToEdit),
 	})
-		.then(succCallback)
-		.catch(errCallback);
+		.then(config.succCallback)
+		.catch(config.errCallback);
 };
 
 export { fetchDataFromServer, saveDataOnServer };

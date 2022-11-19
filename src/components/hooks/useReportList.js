@@ -27,7 +27,6 @@ function useReportList() {
 			city: '',
 		}
 	) {
-		console.log(data);
 		setIsEditing(true);
 
 		setObjToEdit({
@@ -75,13 +74,12 @@ function useReportList() {
 		};
 
 		if (objToEdit.id !== '') {
-			saveDataOnServer(
-				`http://localhost:8000/api/reports/${objToEdit.id}`,
-				'PUT',
+			saveDataOnServer(`/${objToEdit.id}`, {
+				method: 'PUT',
 				objToEdit,
 				saveSuccess,
-				saveFailed
-			);
+				saveFailed,
+			});
 		} else {
 			const reportToAdd = {
 				temperature: objToEdit.temperature,
@@ -89,13 +87,12 @@ function useReportList() {
 				date: objToEdit.date,
 				city: objToEdit.city,
 			};
-			saveDataOnServer(
-				'http://localhost:8000/api/reports',
-				'POST',
-				reportToAdd,
+			saveDataOnServer('', {
+				method: 'POST',
+				objToEdit: reportToAdd,
 				saveSuccess,
-				saveFailed
-			);
+				saveFailed,
+			});
 		}
 	}
 
