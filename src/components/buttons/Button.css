@@ -12,7 +12,7 @@
 	cursor: pointer;
 }
 
-.btn-square {
+.btn-round {
 	position: fixed;
 	bottom: 4rem;
 	transform: translateX(-12rem);
@@ -32,7 +32,7 @@
 	transform: scale(0.98);
 }
 
-.btn-square span {
+.btn-round span {
 	color: #fff;
 	display: flex;
 	align-items: center;
@@ -40,6 +40,6 @@
 	font-size: 4rem;
 }
 
-.btn-square:active {
+.btn-round:active {
 	transform: translateX(-12rem) scale(0.98);
 }

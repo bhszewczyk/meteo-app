@@ -17,14 +17,10 @@ function App() {
 
 	// fetch data from the server on the first app render
 	useEffect(() => {
-		fetchDataFromServer(
-			'http://localhost:8000/api/reports',
-			(data) => {
-				setReportData(data);
-				resetEdition();
-			},
-			handleError
-		);
+		fetchDataFromServer((data) => {
+			setReportData(data);
+			resetEdition();
+		}, handleError);
 	}, [wasEdited]);
 
 	function detectEdition() {

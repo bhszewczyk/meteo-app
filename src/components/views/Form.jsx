@@ -1,6 +1,6 @@
 import React from 'react';
 import './Form.css';
-import Btn from '../buttons/Btn';
+import Button from '../buttons/Button';
 
 // create form component where inputs are controlled by the state of objToEdit
 export default function Form(props) {
@@ -34,6 +34,7 @@ export default function Form(props) {
 							placeholder='temperature'
 							onChange={props.updateData}
 							value={props.objToEdit.temperature}
+							min={props.objToEdit.unit === 'K' ? 0 : ''}
 							name='temperature'
 							required
 						/>
@@ -50,7 +51,7 @@ export default function Form(props) {
 							<option value='F'>F</option>
 						</select>
 					</div>
-					<Btn
+					<Button
 						message='Save'
 						onclick={() => {
 							return;

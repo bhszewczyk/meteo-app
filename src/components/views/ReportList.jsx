@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Report from './Report';
 import Form from './Form';
 import Error from './Error';
-import Btn from '../buttons/Btn';
+import Btn from '../buttons/Button';
 import './ReportList.css';
 import useReportList from '../hooks/useReportList';
 
@@ -20,7 +20,7 @@ export default function ReportList(props) {
 		sendDataToServer,
 	} = useReportList();
 
-	const reportEls = props.reportData.map((report) => {
+	const reportElements = props.reportData.map((report) => {
 		return (
 			<Report
 				key={report.id}
@@ -40,13 +40,13 @@ export default function ReportList(props) {
 			<h1 className='app-title'>Meteo App</h1>
 			{!saveSuccess && <Error message='Saving not succeeded...' />}
 			<div className='btn-container align-right'>
-				<Btn message='+' onclick={enableEditing} classes='btn-square'>
+				<Btn message='+' onclick={enableEditing} classes='btn-round'>
 					{React.createElement('i', {
 						className: 'fa-sharp fa-solid fa-plus-large icon',
 					})}
 				</Btn>
 			</div>
-			{reportEls}
+			{reportElements}
 			{isEditing && (
 				<Form
 					objToEdit={objToEdit}

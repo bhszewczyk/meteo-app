@@ -1,13 +1,12 @@
 import React from 'react';
 import './Report.css';
-import EditBtn from '../buttons/EditBtn';
-import getKelvin from '../helpers/getKelvin';
+import EditButton from '../buttons/EditButton';
+import getReportViewModel from '../helpers/getReportViewModel';
 
 export default function Report(props) {
 	// get business logic for UI from useKelvin custom hook
-	const { displayTemp, displayUnit, iconColorClass, date, city } = getKelvin(
-		props.reportData
-	);
+	const { displayTemp, displayUnit, iconColorClass, date, city } =
+		getReportViewModel(props.reportData);
 
 	// return single weather report component
 	return (
@@ -25,7 +24,7 @@ export default function Report(props) {
 				<div className='report-data--date'>{date}</div>
 				<div className='report-data--location'>{city}</div>
 			</div>
-			<EditBtn enableEditing={() => props.enableEditing(props.reportData)} />
+			<EditButton enableEditing={() => props.enableEditing(props.reportData)} />
 		</div>
 	);
 }

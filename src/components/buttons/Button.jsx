@@ -1,7 +1,7 @@
 import React from 'react';
-import './Btn.css';
+import './Button.css';
 
-export default function Btn(props) {
+export default function Button(props) {
 	return (
 		<button
 			className={`btn ${props.classes}`}
