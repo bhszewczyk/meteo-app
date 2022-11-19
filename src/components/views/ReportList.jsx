@@ -5,7 +5,6 @@ import Error from './Error';
 import Btn from '../buttons/Btn';
 import './ReportList.css';
 import { saveDataOnServer } from '../fetch';
-import { v4 as uuidv4 } from 'uuid';
 
 export default function ReportList(props) {
 	// define state to toggle editing option
@@ -27,7 +26,7 @@ export default function ReportList(props) {
 	function enableEditing(
 		data = {
 			id: '',
-			temperature: null,
+			temperature: '',
 			unit: '',
 			date: '',
 			city: '',
@@ -124,7 +123,11 @@ export default function ReportList(props) {
 			<h1 className='app-title'>Meteo App</h1>
 			{!saveSuccess && <Error message='Saving not succeeded...' />}
 			<div className='btn-container align-right'>
-				<Btn message='+' onclick={enableEditing} classes='btn-square' />
+				<Btn message='+' onclick={enableEditing} classes='btn-square'>
+					{React.createElement('i', {
+						className: 'fa-sharp fa-solid fa-plus-large icon',
+					})}
+				</Btn>
 			</div>
 			{reportEls}
 			{isEditing && (

@@ -13,9 +13,15 @@
 }
 
 .btn-square {
-	padding: 0.4rem 1.2rem;
+	position: fixed;
+	bottom: 4rem;
+	transform: translateX(-12rem);
+	border-radius: 50%;
+	width: 8rem;
+	height: 8rem;
+	margin: 0;
 	font-weight: 600;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
@@ -24,4 +30,16 @@
 
 .btn:active {
 	transform: scale(0.98);
+}
+
+.btn-square span {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 4rem;
+}
+
+.btn-square:active {
+	transform: translateX(-12rem) scale(0.98);
 }

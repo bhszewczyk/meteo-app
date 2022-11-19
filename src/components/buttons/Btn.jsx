@@ -7,7 +7,7 @@ export default function Btn(props) {
 			className={`btn ${props.classes}`}
 			onClick={() => props.onclick(props.objToEdit)}
 		>
-			{props.message}
+			<span>{props.message}</span>
 		</button>
 	);
 }
