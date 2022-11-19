@@ -1,3 +1,5 @@
+const URL = 'http://localhost:8000/api/reports/';
+
 const fetchDataFromServer = async (url, succCallback, errCallback) => {
 	let dataResults = await fetch(url)
 		.then((res) => res.json())

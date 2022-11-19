@@ -32,7 +32,7 @@ export default function Form(props) {
 						<input
 							type='number'
 							className='number-input temperature'
-							placeholder='0'
+							placeholder='temperature'
 							onChange={props.updateData}
 							value={props.objToEdit.temperature}
 							name='temperature'
