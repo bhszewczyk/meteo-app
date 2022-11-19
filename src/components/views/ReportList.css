@@ -1,6 +1,7 @@
 .reports-container {
 	min-width: 40rem;
 	position: relative;
+	margin-bottom: 12rem;
 }
 
 .app-title {

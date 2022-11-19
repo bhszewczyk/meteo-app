@@ -1,54 +1,12 @@
 import React from 'react';
 import './Report.css';
 import EditBtn from '../buttons/EditBtn';
+import useKelvin from '../hooks/useKelvin';
 
 export default function Report(props) {
-	// destruct reportData for clarity purposes
-	const { city, date, temperature, unit: temperatureUnit } = props.reportData;
-
-	// define converter to Kelvin function
-	function getKelvins(temperature, temperatureUnit) {
-		if (temperatureUnit === 'K') {
-			return {
-				temperature: temperature,
-				unit: temperatureUnit,
-			};
-		} else if (temperatureUnit === 'C') {
-			return {
-				// convert celsius to kelvin
-				// K=℃+273.15
-				temperature: temperature + 273.15,
-				unit: 'K',
-			};
-		} else if (temperatureUnit === 'F') {
-			return {
-				// convert fahrenheit to kelvin
-				// K=℃+273.15
-				temperature: (temperature - 32) / 1.8 + 273.15,
-				unit: 'K',
-			};
-		}
-	}
-
-	// define styling helper function to receive proper classes
-	function getTemperatureInterpretationClass(temperature) {
-		if (temperature > 303) {
-			return 'fa-solid fa-temperature-full icon-hot';
-		} else if (temperature <= 303 && temperature > 293) {
-			return 'fa-solid fa-temperature-half icon-warm';
-		} else if (temperature <= 293 && temperature > 283) {
-			return 'fa-solid fa-temperature-quarter icon-cool';
-		} else {
-			return 'fa-solid fa-temperature-empty icon-freezing';
-		}
-	}
-
-	// create variable which will assign temperature in Kelvin
-	const displayTemperature = getKelvins(temperature, temperatureUnit);
-
-	// create variable for styling classes
-	const iconColorClass = getTemperatureInterpretationClass(
-		displayTemperature.temperature
+	// get business logic for UI from useKelvin custom hook
+	const { displayTemp, displayUnit, iconColorClass, date, city } = useKelvin(
+		props.reportData
 	);
 
 	// return single weather report component
@@ -59,10 +17,8 @@ export default function Report(props) {
 					<i className={iconColorClass}></i>
 				</div>
 				<div className='report-data--temp'>
-					{Math.round(displayTemperature.temperature)}
-					<span className='report-data--temp-unit'>
-						{displayTemperature.unit}
-					</span>
+					{Math.round(displayTemp)}
+					<span className='report-data--temp-unit'>{displayUnit}</span>
 				</div>
 			</div>
 			<div className='report-data'>
