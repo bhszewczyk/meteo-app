@@ -77,8 +77,8 @@ function useReportList() {
 			saveDataOnServer(`/${objToEdit.id}`, {
 				method: 'PUT',
 				objToEdit,
-				saveSuccess,
-				saveFailed,
+				succCallback: saveSuccess,
+				errCallback: saveFailed,
 			});
 		} else {
 			const reportToAdd = {
@@ -90,8 +90,8 @@ function useReportList() {
 			saveDataOnServer('', {
 				method: 'POST',
 				objToEdit: reportToAdd,
-				saveSuccess,
-				saveFailed,
+				succCallback: saveSuccess,
+				errCallback: saveFailed,
 			});
 		}
 	}

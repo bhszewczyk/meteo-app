@@ -4,7 +4,6 @@ import Btn from '../buttons/Btn';
 
 // create form component where inputs are controlled by the state of objToEdit
 export default function Form(props) {
-	console.log(props);
 	return (
 		<div className='form-container'>
 			<form onSubmit={(e) => props.sendDataToServer(e)} className='edit-form'>

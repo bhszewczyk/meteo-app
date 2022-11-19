@@ -10,7 +10,6 @@ const fetchDataFromServer = async (url, succCallback, errCallback) => {
 };
 
 const saveDataOnServer = (restApi, config) => {
-	console.log(URL + restApi);
 	fetch(URL + restApi, {
 		method: config.method,
 		headers: {
