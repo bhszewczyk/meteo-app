@@ -27,7 +27,7 @@ export default function ReportList(props) {
 	function enableEditing(
 		data = {
 			id: '',
-			temperature: 0,
+			temperature: null,
 			unit: '',
 			date: '',
 			city: '',
@@ -72,13 +72,14 @@ export default function ReportList(props) {
 
 		const saveSuccess = () => setSaveSuccess(true);
 		const saveFailed = () => {
+			console.log('fail');
 			setSaveSuccess(false);
 			setTimeout(() => {
 				setSaveSuccess(true);
 			}, 3000);
 		};
 
-		if (objToEdit.id) {
+		if (objToEdit.id !== '') {
 			saveDataOnServer(
 				`http://localhost:8000/api/reports/${objToEdit.id}`,
 				'PUT',
@@ -87,11 +88,16 @@ export default function ReportList(props) {
 				saveFailed
 			);
 		} else {
-			objToEdit.id = uuidv4();
+			const reportToAdd = {
+				temperature: objToEdit.temperature,
+				unit: objToEdit.unit,
+				date: objToEdit.date,
+				city: objToEdit.city,
+			};
 			saveDataOnServer(
-				`http://localhost:8000/api/reports`,
+				'http://localhost:8000/api/reports',
 				'POST',
-				objToEdit,
+				reportToAdd,
 				saveSuccess,
 				saveFailed
 			);

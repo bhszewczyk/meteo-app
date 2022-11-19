@@ -9,13 +9,14 @@ const fetchDataFromServer = async (url, succCallback, errCallback) => {
 
 const saveDataOnServer = (
 	url,
-	config,
+	method,
 	objToEdit,
 	succCallback,
 	errCallback
 ) => {
+	console.log(JSON.stringify(objToEdit));
 	fetch(url, {
-		method: config,
+		method: method,
 		headers: {
 			'Content-Type': 'application/json',
 		},

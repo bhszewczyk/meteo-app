@@ -43,7 +43,9 @@ export default function Form(props) {
 							id='unit'
 							value={props.objToEdit.unit}
 							onChange={props.updateData}
+							required
 						>
+							<option value=''>- Select unit -</option>
 							<option value='C'>C</option>
 							<option value='K'>K</option>
 							<option value='F'>F</option>
