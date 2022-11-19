@@ -7,6 +7,11 @@
 	align-items: center;
 	justify-content: flex-start;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	transition: transform 0.2s linear;
+}
+
+.report-container:hover {
+	transform: scale(1.02);
 }
 
 .report-container:not(:last-of-type) {
