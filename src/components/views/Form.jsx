@@ -34,7 +34,14 @@ export default function Form(props) {
 							placeholder='temperature'
 							onChange={props.updateData}
 							value={props.objToEdit.temperature}
-							min={props.objToEdit.unit === 'K' ? 0 : ''}
+							min={
+								// unable to choose below absolute zero
+								props.objToEdit.unit === 'K'
+									? 0
+									: props.objToEdit.unit === 'C'
+									? '-273'
+									: '-459'
+							}
 							name='temperature'
 							required
 						/>
