@@ -6,13 +6,14 @@
 }
 
 .options-container select {
-	text-align: right;
+	text-align: center;
 	background-color: transparent;
 	border: 0;
 	font-family: inherit;
 	margin-left: 1rem;
 	padding: 0.2rem;
 	cursor: pointer;
+	font-size: 1.4rem;
 }
 
 .filter {
@@ -23,7 +24,30 @@
 	border: 0;
 }
 
+.sort {
+	margin-left: 3rem;
+}
+
 .options-container select:focus,
 .filter:focus {
 	outline: 1px solid #0e273c;
+}
+
+@media (max-width: 500px) {
+	.options-container {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.filter {
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+
+	.sort {
+		margin-left: auto;
+	}
 }

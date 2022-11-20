@@ -38,6 +38,7 @@ export default function ReportList(props) {
 	return (
 		<main className='reports-container'>
 			{!saveSuccess && <Error message='Saving not succeeded...' />}
+			<div className='reports-wrapper'>{reportElements}</div>
 			<div className='btn-container align-right'>
 				<Btn message='+' onclick={enableEditing} classes='btn-round'>
 					{React.createElement('i', {
@@ -45,7 +46,6 @@ export default function ReportList(props) {
 					})}
 				</Btn>
 			</div>
-			{reportElements}
 			{isEditing && (
 				<Form
 					objToEdit={objToEdit}

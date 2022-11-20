@@ -1,7 +1,23 @@
 .reports-container {
 	min-width: 40rem;
+
 	position: relative;
-	margin-bottom: 12rem;
+}
+
+.btn-container {
+	position: absolute;
+	bottom: 5%;
+	right: 4rem;
+	z-index: 200;
+}
+
+.reports-wrapper {
+	padding: 0 1rem;
+	min-height: 10rem;
+	max-height: 70vh;
+	overflow-y: visible;
+	position: relative;
+	overflow-x: hidden;
 }
 
 @media (max-width: 350px) {
