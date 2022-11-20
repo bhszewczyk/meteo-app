@@ -2,6 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	margin-bottom: 1rem;
 }
 
 .options-container select {
@@ -11,4 +12,18 @@
 	font-family: inherit;
 	margin-left: 1rem;
 	padding: 0.2rem;
+	cursor: pointer;
+}
+
+.filter {
+	margin-right: auto;
+	font-family: inherit;
+	padding: 0.2rem 1rem;
+	border-radius: 16px;
+	border: 0;
+}
+
+.options-container select:focus,
+.filter:focus {
+	outline: 1px solid #0e273c;
 }

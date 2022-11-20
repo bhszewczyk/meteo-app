@@ -17,8 +17,11 @@ function App() {
 	// define error state
 	const [isError, setIsError] = useState(false);
 
-	// define sort
+	// define sort state
 	const [sortBy, setSortBy] = useState('none');
+
+	// define filter state
+	const [filterBy, setFilterBy] = useState('');
 
 	// fetch data from the server on the first app render
 	useEffect(() => {
@@ -41,11 +44,14 @@ function App() {
 	}
 
 	function defineSorting(e) {
-		const sortOption = e.target.value;
-		setSortBy(sortOption);
+		setSortBy(e.target.value);
 	}
 
-	const sortedArray = getSortedArray(sortBy, reportData);
+	function defineFiltering(e) {
+		setFilterBy(e.target.value);
+	}
+
+	const sortedArray = getSortedArray(sortBy, reportData, filterBy);
 
 	// render report list
 	return (
@@ -53,9 +59,13 @@ function App() {
 			<h1 className='app-title'>Meteo App</h1>
 			{!isError && (
 				<>
-					<Options sortBy={sortBy} defineSorting={defineSorting} />
-					<ReportList
+					<Options
 						sortBy={sortBy}
+						defineSorting={defineSorting}
+						filterBy={filterBy}
+						defineFiltering={defineFiltering}
+					/>
+					<ReportList
 						reportData={sortedArray}
 						detectEdition={detectEdition}
 						resetEdition={resetEdition}

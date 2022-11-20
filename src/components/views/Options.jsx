@@ -4,6 +4,13 @@ import './Options.css';
 export default function Options(props) {
 	return (
 		<div className='options-container'>
+			<input
+				type='text'
+				className='filter'
+				placeholder='- Filter by location -'
+				value={props.filterBy}
+				onChange={(e) => props.defineFiltering(e)}
+			/>
 			<label htmlFor='sort'>Sort by:</label>
 			<select
 				id='sort'

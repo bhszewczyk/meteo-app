@@ -1,7 +1,13 @@
 import getKelvin from './getKelvin';
 
-function getSortedArray(sortOption, reportData) {
+function getSortedArray(sortOption, reportData, filter) {
 	let sortedArray = [...reportData];
+	if (filter !== '') {
+		sortedArray = [...reportData].filter((report) => {
+			return report.city.toLowerCase().includes(filter.toLowerCase());
+		});
+	}
+
 	if (sortOption === 'none') {
 		sortedArray;
 	} else if (sortOption === 'location') {
@@ -12,10 +18,7 @@ function getSortedArray(sortOption, reportData) {
 		sortedArray = sortedArray.sort((report1, report2) => {
 			const report1TemperatureK = getKelvin(report1.temperature, report1.unit);
 			const report2TemperatureK = getKelvin(report2.temperature, report2.unit);
-			console.log(
-				report1TemperatureK.temperature,
-				report2TemperatureK.temperature
-			);
+
 			return report1TemperatureK.temperature - report2TemperatureK.temperature;
 		});
 	} else if (sortOption === 'date') {
