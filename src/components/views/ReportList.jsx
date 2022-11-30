@@ -14,6 +14,7 @@ export default function ReportList(props) {
 		saveSuccess,
 		enableEditing,
 		isEditing,
+		wasEdited,
 		objToEdit,
 		updateData,
 		closeEditing,
@@ -32,12 +33,12 @@ export default function ReportList(props) {
 	//
 	useEffect(() => {
 		props.detectEdition();
-	}, [isEditing]);
+	}, [wasEdited]);
 
 	// return core of the app - repost list and conditionaly - edditing form
 	return (
 		<main className='reports-container'>
-			{!saveSuccess && <Error message='Saving not succeeded...' />}
+			{!saveSuccess ? <Error message='Saving not succeeded...' /> : ''}
 			<div className='reports-wrapper'>{reportElements}</div>
 			<div className='btn-container align-right'>
 				<Btn message='+' onclick={enableEditing} classes='btn-round'>
@@ -46,13 +47,15 @@ export default function ReportList(props) {
 					})}
 				</Btn>
 			</div>
-			{isEditing && (
+			{isEditing ? (
 				<Form
 					objToEdit={objToEdit}
 					updateData={updateData}
 					closeEditing={closeEditing}
 					sendDataToServer={sendDataToServer}
 				/>
+			) : (
+				''
 			)}
 		</main>
 	);

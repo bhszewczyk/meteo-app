@@ -69,6 +69,7 @@ function App() {
 						reportData={sortedArray}
 						detectEdition={detectEdition}
 						resetEdition={resetEdition}
+						wasEdited={wasEdited}
 					/>
 				</>
 			)}
